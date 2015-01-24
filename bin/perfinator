@@ -22,7 +22,8 @@ class App
     Loadtest.run(statsd_server: options['server'],
                  statsd_port: options['port'], concurrent: options['concurrent'],
                  requests: options['requests'].to_i, delay: options['delay'],
-                 url_file: options['file'])
+                 url_file: options['file'],
+                 statsd_namespace: options['namespace'])
 
   end
 
@@ -45,6 +46,9 @@ class App
 
   options['delay'] = 2
   on('-d SECONDS', '--delay', 'Time delay between requests by a given simulated user')
+
+  options['namespace'] = 'perfinator'
+  on('-s NAMESPACE', '--namespace', 'StatD namespace to prefix metrics with')
 
   on('-f FILE', '--file', 'File containing URLs to get')
 
