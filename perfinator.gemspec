@@ -26,5 +26,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency('curb', '~> 0.8.6')
   spec.add_dependency('statsd-ruby', '~> 1.2.1')
   spec.add_dependency('parallel', '~> 1.3.3')
-  spec.add_dependency('ruby-progressbar', '~> 1.7.1')
+  spec.add_dependency('chronic_duration', '~> 0.10.6')
 end

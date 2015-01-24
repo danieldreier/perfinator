@@ -4,6 +4,7 @@ require 'optparse'
 require 'methadone'
 require 'perfinator.rb'
 require 'perfinator/loadtest'
+require 'chronic_duration'
 
 class App
   include Methadone::Main
@@ -19,12 +20,30 @@ class App
       delay: #{options['delay']},
       url_file: #{options['file']}"
 
-    Loadtest.run(statsd_server: options['server'],
-                 statsd_port: options['port'], concurrent: options['concurrent'],
-                 requests: options['requests'].to_i, delay: options['delay'],
-                 url_file: options['file'],
-                 statsd_namespace: options['namespace'])
-
+    duration = ChronicDuration.parse(options['time'])
+    debug "duration: #{duration.to_s}"
+    if duration > 0
+      now = Time.now
+      options['requests'] = options['concurrent']
+      while Time.now < now + duration
+        Loadtest.run(statsd_server: options['server'],
+                     statsd_port: options['port'],
+                     concurrent: options['concurrent'],
+                     requests: options['requests'].to_i,
+                     delay: options['delay'],
+                     url_file: options['file'],
+                     statsd_namespace: options['namespace'],
+                     duration: options['time'],)
+        break if Time.now >= now + duration - 1
+      end
+    else
+      Loadtest.run(statsd_server: options['server'],
+                  statsd_port: options['port'], concurrent: options['concurrent'],
+                  requests: options['requests'].to_i, delay: options['delay'],
+                  url_file: options['file'],
+                  statsd_namespace: options['namespace'],
+                  duration: options['time'])
+    end
   end
 
   # supplemental methods here
@@ -49,6 +68,8 @@ class App
 
   options['namespace'] = 'perfinator'
   on('-s NAMESPACE', '--namespace', 'StatD namespace to prefix metrics with')
+
+  on('-t NUMm', '--time', 'Time to run test. Incompatible with --requests')
 
   on('-f FILE', '--file', 'File containing URLs to get')
 
