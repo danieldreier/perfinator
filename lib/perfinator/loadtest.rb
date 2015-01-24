@@ -3,6 +3,7 @@ module Perfinator
     require 'curb'
     require 'statsd-ruby'
     require 'parallel'
+    require 'colorize'
 
     include Methadone::CLILogging
 
@@ -34,7 +35,20 @@ module Perfinator
           statsd.timing metric, metrics[:"#{metric}"]
           debug "sent statsd metric: '#{metric}' with value " + metrics[:"#{metric}"].to_s
         end
-        info "%5ss [%6s] %20s" % [metrics[:total_time].round(3), request.status, url.to_s]
+
+        case request.response_code.to_s
+        when /^2\d{2}/
+          color = :blue
+        when /^3\d{2}/
+          color = :light_green
+        when /^4\d{2}/
+          color = :light_red
+        when /^5\d{2}/
+          color = :red
+        end
+
+        request_status = request.status.colorize(color)
+        info "%5ss [%6s] %20s" % [metrics[:total_time].round(3), request_status, url.to_s]
       }
     end
   end

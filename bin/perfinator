@@ -75,7 +75,6 @@ class App
 
 #  on("--[no-]random","Select URLs from list randomly")
 
-
   # Require an argument
   # arg :some_arg 
   #

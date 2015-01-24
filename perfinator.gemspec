@@ -27,4 +27,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency('statsd-ruby', '~> 1.2.1')
   spec.add_dependency('parallel', '~> 1.3.3')
   spec.add_dependency('chronic_duration', '~> 0.10.6')
+  spec.add_dependency('colorize', '~> 0.7.5')
 end
