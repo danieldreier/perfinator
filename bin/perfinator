@@ -12,6 +12,7 @@ class App
   include Perfinator
 
   main do
+    logger.level = Logger::DEBUG if options['debug']
     debug "Options set:
       statsd_server: #{options['server']},
       statsd_port: #{options['port']},
@@ -24,16 +25,18 @@ class App
     debug "duration: #{duration.to_s}"
     if duration > 0
       now = Time.now
+      progressbar = ProgressBar.create(:format => '%a %b>%i %p%% %t',:title => "Benchmark Progress", :starting_at => 0, :total => duration)
       options['requests'] = options['concurrent']
       while Time.now < now + duration
+        progressbar.progress = Time.now - now
         Loadtest.run(statsd_server: options['server'],
                      statsd_port: options['port'],
-                     concurrent: options['concurrent'],
+                     concurrent: options['concurrent'].to_i,
                      requests: options['requests'].to_i,
                      delay: options['delay'],
                      url_file: options['file'],
                      statsd_namespace: options['namespace'],
-                     duration: options['time'],)
+                     verbose: options['verbose'] )
         break if Time.now >= now + duration - 1
       end
     else
@@ -74,6 +77,11 @@ class App
   on('-f FILE', '--file', 'File containing URLs to get')
 
 #  on("--[no-]random","Select URLs from list randomly")
+  on('-v','--[no-]verbose', "verbose output")
+
+  options['debug'] = false
+  on('--[no-]debug', "shortcut for --log-level debug")
+
 
   # Require an argument
   # arg :some_arg 

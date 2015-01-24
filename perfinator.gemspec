@@ -28,4 +28,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency('parallel', '~> 1.3.3')
   spec.add_dependency('chronic_duration', '~> 0.10.6')
   spec.add_dependency('colorize', '~> 0.7.5')
+  spec.add_dependency('ruby-progressbar', '~> 1.7.1')
 end
