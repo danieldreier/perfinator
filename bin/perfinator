@@ -3,16 +3,27 @@
 require 'optparse'
 require 'methadone'
 require 'perfinator.rb'
+require 'perfinator/loadtest'
 
 class App
   include Methadone::Main
   include Methadone::CLILogging
+  include Perfinator
 
-  main do # Add args you want: |like,so|
-    # your program code here
-    # You can access CLI options via
-    # the options Hash
-    puts options['file']
+  main do
+    debug "Options set:
+      statsd_server: #{options['server']},
+      statsd_port: #{options['port']},
+      concurrent: #{options['concurrent']},
+      requests: #{options['requests']},
+      delay: #{options['delay']},
+      url_file: #{options['file']}"
+
+    Loadtest.run(statsd_server: options['server'],
+                 statsd_port: options['port'], concurrent: options['concurrent'],
+                 requests: options['requests'].to_i, delay: options['delay'],
+                 url_file: options['file'])
+
   end
 
   # supplemental methods here
@@ -21,7 +32,7 @@ class App
 
   description "HTTP load testing and benchmarking tool with statsd output"
   #
-  options['server'] = '8125'
+  options['server'] = 'localhost'
   on("-s STATSD_SERVER", "--server", "StatsD server to send metrics to")
   options['port'] = '8125'
   on("-p STATSD_PORT", "--port", "StatsD port to send metrics to")
@@ -37,12 +48,9 @@ class App
 
   on('-f FILE', '--file', 'File containing URLs to get')
 
-  on("--[no-]random","Select URLs from list randomly")
+#  on("--[no-]random","Select URLs from list randomly")
 
 
-#  arg :file
-#  arg :server, :optional
-#  arg :port, :optional
   # Require an argument
   # arg :some_arg 
   #

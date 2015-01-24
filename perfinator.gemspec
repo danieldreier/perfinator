@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Perfinator::VERSION
   spec.authors       = ["Daniel Dreier"]
   spec.email         = ["d@puppetlabs.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Send detailed HTTP benchmark results to statsd}
+  spec.description   = %q{HTTP load testing and benchmarking tool with statsd output}
   spec.homepage      = ""
   spec.license       = ""
 
@@ -22,6 +22,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
   spec.add_development_dependency('rdoc')
   spec.add_development_dependency('aruba')
-  spec.add_development_dependency('rake')
   spec.add_dependency('methadone', '~> 1.8.0')
+  spec.add_dependency('curb', '~> 0.8.6')
+  spec.add_dependency('statsd-ruby', '~> 1.2.1')
+  spec.add_dependency('parallel', '~> 1.3.3')
+  spec.add_dependency('ruby-progressbar', '~> 1.7.1')
 end

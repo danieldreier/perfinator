@@ -1,7 +1,7 @@
 Feature: Perfinator has working help
-  In order to get going on coding my awesome app
-  I want to have aruba and cucumber setup
-  So I don't have to do it myself
+  In order to help users pick up perfinator quickly
+  I want the app to explain itself
+  So I don't have to tell people what to do
 
   Scenario: App runs
     When I get help for "perfinator"
