@@ -12,23 +12,37 @@ class App
     # your program code here
     # You can access CLI options via
     # the options Hash
+    puts options['file']
   end
 
   # supplemental methods here
 
   # Declare command-line interface here
 
-  description "one line description of your app"
+  description "HTTP load testing and benchmarking tool with statsd output"
   #
-  # Accept flags via:
-  # on("--flag VAL","Some flag")
-  # options[flag] will contain VAL
-  #
-  # Specify switches via:
-  # on("--[no-]switch","Some switch")
-  #
-  # Or, just call OptionParser methods on opts
-  #
+  options['server'] = '8125'
+  on("-s STATSD_SERVER", "--server", "StatsD server to send metrics to")
+  options['port'] = '8125'
+  on("-p STATSD_PORT", "--port", "StatsD port to send metrics to")
+
+  options['concurrent'] = 10
+  on('-c NUM', '--concurrent', 'Simulated concurrent users')
+
+  options['requests'] = 500
+  on('-n NUM', '--requests', 'Number of requests to make during the test')
+
+  options['delay'] = 2
+  on('-d SECONDS', '--delay', 'Time delay between requests by a given simulated user')
+
+  on('-f FILE', '--file', 'File containing URLs to get')
+
+  on("--[no-]random","Select URLs from list randomly")
+
+
+#  arg :file
+#  arg :server, :optional
+#  arg :port, :optional
   # Require an argument
   # arg :some_arg 
   #
