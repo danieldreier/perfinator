@@ -73,6 +73,12 @@ perfinator --file test_urls.txt --requests 100 --server statsd.example.com --del
 There are no tests and this was hacked together in a few hours. Nothing has
 been validated and I'm not terribly confident that the metrics are accurate.
 
+
+## Grafana Dashboard
+A sample grafana dashboard is in the `example` directory. You'll need to search-and-replace on the specific graphite paths you're using. An example of how this might be used to compare production between two environments is below:
+
+![Image](examples/example-grafana-dashboard-screenshot.gif?raw=true)
+
 ## Contributing
 
 1. Fork it ( https://github.com/danieldreier/perfinator/fork )
