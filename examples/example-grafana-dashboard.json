@@ -1,0 +1,876 @@
+{
+  "title": "perfinator",
+  "services": {
+    "filter": {
+      "list": [],
+      "time": {
+        "from": "now-5m",
+        "to": "now"
+      }
+    }
+  },
+  "rows": [
+    {
+      "title": "Title",
+      "height": "50px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": [
+        {
+          "error": false,
+          "span": 6,
+          "editable": true,
+          "type": "text",
+          "loadingEditor": false,
+          "mode": "html",
+          "content": "<center> <h1>Dev</h1> </center>",
+          "style": {},
+          "title": "Stage"
+        },
+        {
+          "error": false,
+          "span": 6,
+          "editable": true,
+          "type": "text",
+          "loadingEditor": false,
+          "mode": "html",
+          "content": "<center> <h1>Production</h1> </center>",
+          "style": {},
+          "title": "Stage"
+        }
+      ],
+      "notice": false
+    },
+    {
+      "title": "Row1",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": [
+        {
+          "span": 6,
+          "editable": true,
+          "type": "graph",
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "scale": 1,
+          "y_formats": [
+            "none",
+            "short"
+          ],
+          "grid": {
+            "max": null,
+            "min": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "annotate": {
+            "enable": false
+          },
+          "resolution": 100,
+          "lines": false,
+          "fill": 7,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": true,
+          "stack": true,
+          "legend": {
+            "show": true,
+            "values": true,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": true,
+            "avg": false
+          },
+          "percentage": true,
+          "zerofill": true,
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "query_as_alias": true
+          },
+          "targets": [
+            {
+              "target": "stats.websites.puppetlabs_com.dev.perfinator.http_status.*"
+            }
+          ],
+          "aliasColors": {},
+          "aliasYAxis": {},
+          "leftYAxisLabel": "% requests",
+          "rightYAxisLabel": "",
+          "title": "HTTP status codes on all requests made by perfinator"
+        },
+        {
+          "span": 6,
+          "editable": true,
+          "type": "graph",
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "scale": 1,
+          "y_formats": [
+            "none",
+            "short"
+          ],
+          "grid": {
+            "max": null,
+            "min": null,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "annotate": {
+            "enable": false
+          },
+          "resolution": 100,
+          "lines": false,
+          "fill": 7,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": true,
+          "stack": true,
+          "legend": {
+            "show": true,
+            "values": true,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": true,
+            "avg": false
+          },
+          "percentage": true,
+          "zerofill": true,
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "query_as_alias": true
+          },
+          "targets": [
+            {
+              "target": "stats.websites.puppetlabs_com.production.perfinator.http_status.*"
+            }
+          ],
+          "aliasColors": {},
+          "aliasYAxis": {},
+          "leftYAxisLabel": "% requests",
+          "rightYAxisLabel": "",
+          "title": "HTTP status codes on all requests made by perfinator"
+        }
+      ],
+      "notice": false
+    },
+    {
+      "title": "Row1",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": [
+        {
+          "span": 6,
+          "editable": true,
+          "type": "graph",
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "scale": 1,
+          "y_formats": [
+            "none",
+            "short"
+          ],
+          "grid": {
+            "max": 10,
+            "min": 0,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "annotate": {
+            "enable": false
+          },
+          "resolution": 100,
+          "lines": false,
+          "fill": 7,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": true,
+          "stack": true,
+          "legend": {
+            "show": true,
+            "values": true,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": true,
+            "avg": false
+          },
+          "percentage": false,
+          "zerofill": true,
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "query_as_alias": true
+          },
+          "targets": [
+            {
+              "target": "stats.websites.puppetlabs_com.dev.perfinator.requests"
+            }
+          ],
+          "aliasColors": {},
+          "aliasYAxis": {},
+          "leftYAxisLabel": "requests",
+          "rightYAxisLabel": "",
+          "title": "Total requests made by perfinator"
+        },
+        {
+          "span": 6,
+          "editable": true,
+          "type": "graph",
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "scale": 1,
+          "y_formats": [
+            "none",
+            "short"
+          ],
+          "grid": {
+            "max": 10,
+            "min": 0,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "annotate": {
+            "enable": false
+          },
+          "resolution": 100,
+          "lines": false,
+          "fill": 7,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": true,
+          "stack": true,
+          "legend": {
+            "show": true,
+            "values": true,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": true,
+            "avg": false
+          },
+          "percentage": false,
+          "zerofill": true,
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "query_as_alias": true
+          },
+          "targets": [
+            {
+              "target": "stats.websites.puppetlabs_com.production.perfinator.requests"
+            }
+          ],
+          "aliasColors": {},
+          "aliasYAxis": {},
+          "leftYAxisLabel": "requests",
+          "rightYAxisLabel": "",
+          "title": "Total requests made by perfinator"
+        }
+      ],
+      "notice": false
+    },
+    {
+      "title": "Row1",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": [
+        {
+          "span": 6,
+          "editable": true,
+          "type": "graph",
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "scale": 1,
+          "y_formats": [
+            "none",
+            "short"
+          ],
+          "grid": {
+            "max": 3,
+            "min": 0,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "annotate": {
+            "enable": false
+          },
+          "resolution": 100,
+          "lines": true,
+          "fill": 7,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "legend": {
+            "show": true,
+            "values": true,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": true
+          },
+          "percentage": false,
+          "zerofill": true,
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "individual",
+            "query_as_alias": true
+          },
+          "targets": [
+            {
+              "target": "stats.timers.websites.puppetlabs_com.dev.perfinator.total_time.median",
+              "hide": false
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.dev.perfinator.redirect_time.median",
+              "hide": false
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.dev.perfinator.name_lookup_time.median",
+              "hide": false
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.dev.perfinator.start_transfer_time.median",
+              "hide": false
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.dev.perfinator.pre_transfer_time.median",
+              "hide": false
+            }
+          ],
+          "aliasColors": {},
+          "aliasYAxis": {},
+          "leftYAxisLabel": "seconds",
+          "rightYAxisLabel": "",
+          "title": "Benchmark performance: median connection time breakdown"
+        },
+        {
+          "span": 6,
+          "editable": true,
+          "type": "graph",
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "scale": 1,
+          "y_formats": [
+            "none",
+            "short"
+          ],
+          "grid": {
+            "max": 3,
+            "min": 0,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "annotate": {
+            "enable": false
+          },
+          "resolution": 100,
+          "lines": true,
+          "fill": 7,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "legend": {
+            "show": true,
+            "values": true,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": true
+          },
+          "percentage": false,
+          "zerofill": true,
+          "nullPointMode": "null",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "individual",
+            "query_as_alias": true
+          },
+          "targets": [
+            {
+              "target": "stats.timers.websites.puppetlabs_com.production.perfinator.total_time.median",
+              "hide": false
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.production.perfinator.redirect_time.median",
+              "hide": false
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.production.perfinator.name_lookup_time.median",
+              "hide": false
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.production.perfinator.start_transfer_time.median",
+              "hide": false
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.production.perfinator.pre_transfer_time.median",
+              "hide": false
+            }
+          ],
+          "aliasColors": {},
+          "aliasYAxis": {},
+          "leftYAxisLabel": "seconds",
+          "rightYAxisLabel": "",
+          "title": "Benchmark performance: median connection time breakdown"
+        }
+      ],
+      "notice": false
+    },
+    {
+      "title": "Row1",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": [
+        {
+          "span": 6,
+          "editable": true,
+          "type": "graph",
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "scale": 1,
+          "y_formats": [
+            "none",
+            "short"
+          ],
+          "grid": {
+            "max": 4,
+            "min": 0,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)",
+            "thresholdLine": false
+          },
+          "annotate": {
+            "enable": false
+          },
+          "resolution": 100,
+          "lines": false,
+          "fill": 5,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": true,
+          "stack": true,
+          "legend": {
+            "show": true,
+            "values": true,
+            "min": false,
+            "max": true,
+            "current": false,
+            "total": false,
+            "avg": true
+          },
+          "percentage": false,
+          "zerofill": true,
+          "nullPointMode": "null",
+          "steppedLine": true,
+          "tooltip": {
+            "value_type": "individual",
+            "query_as_alias": true
+          },
+          "targets": [
+            {
+              "target": "stats.timers.websites.puppetlabs_com.dev.perfinator.total_time.std",
+              "hide": true
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.dev.perfinator.redirect_time.std",
+              "hide": false
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.dev.perfinator.name_lookup_time.std",
+              "hide": false
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.dev.perfinator.pre_transfer_time.std",
+              "hide": false
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.dev.perfinator.total_time.std",
+              "hide": false
+            }
+          ],
+          "aliasColors": {},
+          "aliasYAxis": {},
+          "leftYAxisLabel": "seconds",
+          "rightYAxisLabel": "",
+          "title": "Benchmark performance: connection time standard deviation by stage"
+        },
+        {
+          "span": 6,
+          "editable": true,
+          "type": "graph",
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "scale": 1,
+          "y_formats": [
+            "none",
+            "short"
+          ],
+          "grid": {
+            "max": 4,
+            "min": 0,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)",
+            "thresholdLine": false
+          },
+          "annotate": {
+            "enable": false
+          },
+          "resolution": 100,
+          "lines": false,
+          "fill": 5,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": true,
+          "stack": true,
+          "legend": {
+            "show": true,
+            "values": true,
+            "min": false,
+            "max": true,
+            "current": false,
+            "total": false,
+            "avg": true
+          },
+          "percentage": false,
+          "zerofill": true,
+          "nullPointMode": "null",
+          "steppedLine": true,
+          "tooltip": {
+            "value_type": "individual",
+            "query_as_alias": true
+          },
+          "targets": [
+            {
+              "target": "stats.timers.websites.puppetlabs_com.dev.perfinator.total_time.std",
+              "hide": true
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.production.perfinator.redirect_time.std",
+              "hide": false
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.production.perfinator.name_lookup_time.std",
+              "hide": false
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.production.perfinator.pre_transfer_time.std",
+              "hide": false
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.production.perfinator.total_time.std",
+              "hide": false
+            }
+          ],
+          "aliasColors": {},
+          "aliasYAxis": {},
+          "leftYAxisLabel": "seconds",
+          "rightYAxisLabel": "",
+          "title": "Benchmark performance: connection time standard deviation by stage"
+        }
+      ],
+      "notice": false
+    },
+    {
+      "title": "Row1",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": [
+        {
+          "span": 6,
+          "editable": true,
+          "type": "graph",
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "scale": 1,
+          "y_formats": [
+            "none",
+            "short"
+          ],
+          "grid": {
+            "max": 4,
+            "min": 0,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)",
+            "thresholdLine": false
+          },
+          "annotate": {
+            "enable": false
+          },
+          "resolution": 100,
+          "lines": true,
+          "fill": 5,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "legend": {
+            "show": true,
+            "values": true,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": true
+          },
+          "percentage": false,
+          "zerofill": true,
+          "nullPointMode": "null",
+          "steppedLine": true,
+          "tooltip": {
+            "value_type": "cumulative",
+            "query_as_alias": true
+          },
+          "targets": [
+            {
+              "target": "stats.timers.websites.puppetlabs_com.dev.perfinator.total_time.std",
+              "hide": true
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.dev.perfinator.redirect_time.mean",
+              "hide": false
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.dev.perfinator.name_lookup_time.mean",
+              "hide": false
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.dev.perfinator.pre_transfer_time.mean",
+              "hide": false
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.dev.perfinator.start_transfer_time.mean",
+              "hide": false
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.dev.perfinator.total_time.mean",
+              "hide": false
+            }
+          ],
+          "aliasColors": {},
+          "aliasYAxis": {},
+          "leftYAxisLabel": "seconds",
+          "rightYAxisLabel": "",
+          "title": "Benchmark performance: median connection time by stage"
+        },
+        {
+          "span": 6,
+          "editable": true,
+          "type": "graph",
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "scale": 1,
+          "y_formats": [
+            "none",
+            "short"
+          ],
+          "grid": {
+            "max": 4,
+            "min": 0,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)",
+            "thresholdLine": false
+          },
+          "annotate": {
+            "enable": false
+          },
+          "resolution": 100,
+          "lines": true,
+          "fill": 5,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "legend": {
+            "show": true,
+            "values": true,
+            "min": false,
+            "max": false,
+            "current": false,
+            "total": false,
+            "avg": true
+          },
+          "percentage": false,
+          "zerofill": true,
+          "nullPointMode": "null",
+          "steppedLine": true,
+          "tooltip": {
+            "value_type": "cumulative",
+            "query_as_alias": true
+          },
+          "targets": [
+            {
+              "target": "stats.timers.websites.puppetlabs_com.dev.perfinator.total_time.std",
+              "hide": true
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.production.perfinator.redirect_time.mean",
+              "hide": false
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.production.perfinator.name_lookup_time.mean",
+              "hide": false
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.production.perfinator.pre_transfer_time.mean",
+              "hide": false
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.production.perfinator.start_transfer_time.mean",
+              "hide": false
+            },
+            {
+              "target": "stats.timers.websites.puppetlabs_com.production.perfinator.total_time.mean",
+              "hide": false
+            }
+          ],
+          "aliasColors": {},
+          "aliasYAxis": {},
+          "leftYAxisLabel": "seconds",
+          "rightYAxisLabel": "",
+          "title": "Benchmark performance: median connection time by stage"
+        }
+      ],
+      "notice": false
+    }
+  ],
+  "editable": true,
+  "failover": false,
+  "panel_hints": true,
+  "style": "dark",
+  "pulldowns": [
+    {
+      "type": "filtering",
+      "collapse": false,
+      "notice": false,
+      "enable": false
+    },
+    {
+      "type": "annotations",
+      "enable": false
+    }
+  ],
+  "nav": [
+    {
+      "type": "timepicker",
+      "collapse": false,
+      "notice": false,
+      "enable": true,
+      "status": "Stable",
+      "time_options": [
+        "5m",
+        "15m",
+        "1h",
+        "6h",
+        "12h",
+        "24h",
+        "2d",
+        "7d",
+        "30d"
+      ],
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ],
+      "now": true
+    }
+  ],
+  "loader": {
+    "save_gist": false,
+    "save_elasticsearch": true,
+    "save_local": true,
+    "save_default": true,
+    "save_temp": true,
+    "save_temp_ttl_enable": true,
+    "save_temp_ttl": "30d",
+    "load_gist": false,
+    "load_elasticsearch": true,
+    "load_elasticsearch_size": 20,
+    "load_local": false,
+    "hide": false
+  },
+  "refresh": false,
+  "tags": [],
+  "timezone": "browser"
+}
